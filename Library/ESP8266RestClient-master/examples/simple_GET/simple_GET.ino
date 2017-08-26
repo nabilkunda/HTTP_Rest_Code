@@ -46,13 +46,7 @@ void setup() {
 void loop() {
   String response = "";
   String urlString = "/api/status?node=" + GUID + "&pin1=" + state_1 + "&pin2=" + state_2 + "&pin3=" + state_3 + "&pin4=" + state_4;
-  Serial.println(urlString);
-  Serial.print("Size of urlstring is :");
-  Serial.println(sizeof(urlString.length()+1));
-  //char url[sizeof(urlString)];
   const char* url = urlString.c_str();
-  //urlString.toCharArray(url,sizeof(urlString.length()+1));
-  Serial.println(url);
   int statusCode = client.get(url, &response);
   response.remove(0, response.indexOf("["));
   
@@ -79,31 +73,27 @@ void loop() {
         const char* switchName = statusObject["switchName"].as<const char*>();
         int s = statusObject["status"].as<int>();
         if (strcmp(switchName, "switch_1") == 0) {
+          Serial.println("Switch 1");
           state_1 = s;
           digitalWrite(switch_1, state_1);
         }
         else if (strcmp(switchName, "switch_2") == 0) {
+          Serial.println("Switch 2");
           state_2 = s;
           digitalWrite(switch_2, state_2);
         }
         else if (strcmp(switchName, "switch_3") == 0) {
+          Serial.println("Switch 3");
           state_3 = s;
           digitalWrite(switch_3, state_3);
         }
         else if (strcmp(switchName, "switch_4") == 0) {
+          Serial.println("Switch 4");
           state_4 = s;
           digitalWrite(switch_4, state_4);
         }
       }
     }
   }
-  delay(1000);
-}
-
-const char* Convert(String s) {
-  char* charArray;
-  s.toCharArray(charArray, s.length());
-  const char* constChar;
-  strcpy(charArray, constChar);
-  return constChar;
+  delay(5000);
 }
