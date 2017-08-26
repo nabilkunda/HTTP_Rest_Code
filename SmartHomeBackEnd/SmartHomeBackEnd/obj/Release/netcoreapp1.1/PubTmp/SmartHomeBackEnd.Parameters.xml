@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="TestSmartHome" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Work\\Smart_Home\\Code\\HTTP_Rest_Code\\SmartHomeBackEnd\\SmartHomeBackEnd\\obj\\Release\\netcoreapp1\.1\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

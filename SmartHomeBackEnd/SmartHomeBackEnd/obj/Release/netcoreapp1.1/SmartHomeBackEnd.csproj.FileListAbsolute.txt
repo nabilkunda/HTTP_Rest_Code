@@ -1,0 +1,9 @@
+D:\Work\Smart_Home\Code\HTTP_Rest_Code\SmartHomeBackEnd\SmartHomeBackEnd\bin\Release\netcoreapp1.1\SmartHomeBackEnd.deps.json
+D:\Work\Smart_Home\Code\HTTP_Rest_Code\SmartHomeBackEnd\SmartHomeBackEnd\bin\Release\netcoreapp1.1\SmartHomeBackEnd.runtimeconfig.json
+D:\Work\Smart_Home\Code\HTTP_Rest_Code\SmartHomeBackEnd\SmartHomeBackEnd\bin\Release\netcoreapp1.1\SmartHomeBackEnd.runtimeconfig.dev.json
+D:\Work\Smart_Home\Code\HTTP_Rest_Code\SmartHomeBackEnd\SmartHomeBackEnd\bin\Release\netcoreapp1.1\SmartHomeBackEnd.dll
+D:\Work\Smart_Home\Code\HTTP_Rest_Code\SmartHomeBackEnd\SmartHomeBackEnd\bin\Release\netcoreapp1.1\SmartHomeBackEnd.pdb
+D:\Work\Smart_Home\Code\HTTP_Rest_Code\SmartHomeBackEnd\SmartHomeBackEnd\obj\Release\netcoreapp1.1\SmartHomeBackEnd.csprojResolveAssemblyReference.cache
+D:\Work\Smart_Home\Code\HTTP_Rest_Code\SmartHomeBackEnd\SmartHomeBackEnd\obj\Release\netcoreapp1.1\SmartHomeBackEnd.AssemblyInfo.cs
+D:\Work\Smart_Home\Code\HTTP_Rest_Code\SmartHomeBackEnd\SmartHomeBackEnd\obj\Release\netcoreapp1.1\SmartHomeBackEnd.dll
+D:\Work\Smart_Home\Code\HTTP_Rest_Code\SmartHomeBackEnd\SmartHomeBackEnd\obj\Release\netcoreapp1.1\SmartHomeBackEnd.pdb

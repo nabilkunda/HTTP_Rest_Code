@@ -45,13 +45,22 @@ void setup() {
 
 void loop() {
   String response = "";
-  String urlString = "/api/test?node=" + GUID + "&pin1=" + state_1 + "&pin2=" + state_2 + "&pin3=" + state_3 + "&pin4=" + state_4;
-  char* urlInCharArray;
-  urlString.toCharArray(urlInCharArray, urlString.length());
-  const char* url;
-  strcpy(urlInCharArray, url);
+  String urlString = "/api/status?node=" + GUID + "&pin1=" + state_1 + "&pin2=" + state_2 + "&pin3=" + state_3 + "&pin4=" + state_4;
+  Serial.println(urlString);
+  Serial.print("Size of urlstring is :");
+  Serial.println(sizeof(urlString.length()+1));
+  //char url[sizeof(urlString)];
+  const char* url = urlString.c_str();
+  //urlString.toCharArray(url,sizeof(urlString.length()+1));
+  Serial.println(url);
   int statusCode = client.get(url, &response);
-  response.remove(0, response.indexOf("{"));
+  response.remove(0, response.indexOf("["));
+  
+  Serial.print("Status code from server: ");
+  Serial.println(statusCode);
+  Serial.print("Response body from server: ");
+  Serial.println(response);
+  
   if (statusCode == 200)
   {
     DynamicJsonBuffer jsonBuffer(200);
@@ -67,31 +76,34 @@ void loop() {
       for (int i = 0; i < root.size(); i++)
       {
         JsonObject& statusObject = root[i];
-        if (statusObject.containsKey("switch_1")) {
-          state_1 = statusObject["switch_1"].as<int>();
+        const char* switchName = statusObject["switchName"].as<const char*>();
+        int s = statusObject["status"].as<int>();
+        if (strcmp(switchName, "switch_1") == 0) {
+          state_1 = s;
           digitalWrite(switch_1, state_1);
         }
-
-        if (statusObject.containsKey("switch_2")) {
-          state_2 = statusObject["switch_2"].as<int>();
+        else if (strcmp(switchName, "switch_2") == 0) {
+          state_2 = s;
           digitalWrite(switch_2, state_2);
         }
-
-        if (statusObject.containsKey("switch_3")) {
-          state_3 = statusObject["switch_3"].as<int>();
+        else if (strcmp(switchName, "switch_3") == 0) {
+          state_3 = s;
           digitalWrite(switch_3, state_3);
         }
-
-        if (statusObject.containsKey("switch_4")) {
-          state_4 = statusObject["switch_4"].as<int>();
+        else if (strcmp(switchName, "switch_4") == 0) {
+          state_4 = s;
           digitalWrite(switch_4, state_4);
         }
       }
     }
   }
-  Serial.print("Status code from server: ");
-  Serial.println(statusCode);
-  Serial.print("Response body from server: ");
-  Serial.println(response);
   delay(1000);
+}
+
+const char* Convert(String s) {
+  char* charArray;
+  s.toCharArray(charArray, s.length());
+  const char* constChar;
+  strcpy(charArray, constChar);
+  return constChar;
 }
