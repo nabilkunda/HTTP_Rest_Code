@@ -13,7 +13,7 @@ int test_delay = 1000; //so we don't spam the API
 boolean describe_tests = true;
 
 const char* ssid = "RAZINWIFI";
-const char* password = "ABab@123";
+const char* password = "****";
 
 RestClient client = RestClient("http://testsmarthome.azurewebsites.net");
 //RestClient client  = RestClient("10.0.1.47",5000);
